@@ -15,8 +15,7 @@ func bootStart() {
 	config.InitConfig(cfg)
 	logger.InitLog("./logger")
 	logger.Debugf("init base success!!!")
-	db.StartDb(config.GetMysql())
-	logger.Debugf("init database success....")
+	db.StartMysql(config.GetMysql())
 }
 
 func main() {
