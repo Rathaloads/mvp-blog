@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"mb-server/common/config"
+	"mb-server/common/db"
 	"mb-server/common/logger"
 	"mb-server/router"
 )
@@ -14,6 +15,8 @@ func bootStart() {
 	config.InitConfig(cfg)
 	logger.InitLog("./logger")
 	logger.Debugf("init base success!!!")
+	db.StartDb(config.GetMysql())
+	logger.Debugf("init database success....")
 }
 
 func main() {
