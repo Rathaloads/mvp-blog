@@ -14,8 +14,13 @@ func bootStart() {
 	flag.Parse()
 	config.InitConfig(cfg)
 	logger.InitLog("./logger")
-	logger.Debugf("init base success!!!")
-	db.StartMysql(config.GetMysql())
+	if err := db.StartMysql(config.GetMysql()); err != nil {
+		logger.Panicf("start mysql fail: %v", err)
+	}
+	if err := db.StartRedis(config.GetRedis()); err != nil {
+		logger.Panic("start redis fail: %v", err)
+	}
+	logger.Debug("bootstart success.....")
 }
 
 func main() {

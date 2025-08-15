@@ -1,6 +1,10 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"mb-server/controller/admin"
+
+	"github.com/gin-gonic/gin"
+)
 
 func StartRouter() *gin.Engine {
 	router := gin.Default()
@@ -9,7 +13,7 @@ func StartRouter() *gin.Engine {
 		// 权限
 		auth := api.Group("/auth")
 		{
-			auth.POST("/login", func(ctx *gin.Context) {})
+			auth.GET("/login", admin.AdminLogin)
 			auth.POST("/register", func(ctx *gin.Context) {})
 		}
 
