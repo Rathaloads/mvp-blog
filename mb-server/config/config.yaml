@@ -1,11 +1,11 @@
 Web:
-  Key: "123123231"
+  SecretKey: "fuckyou!"
 Mysql:
   Username: "root"
   Password: "336699"
   Host: "127.0.0.1"
   Port: 3306
-  DatabaseName: "mvpblog"
+  Database: "mvpblog"
 Redis:
   Host: "127.0.0.1:6379"
   Password: ""

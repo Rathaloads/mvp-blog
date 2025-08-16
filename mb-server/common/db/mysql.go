@@ -25,6 +25,8 @@ func connectMysql(c *config.Mysql) error {
 	return nil
 }
 func ConnectMysqlSlf(userName string, password string, host string, port string, databaseName string) (*gorm.DB, error) {
+	// "user:pass@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
+	logger.Debugf("databaseName: %s", databaseName)
 	dbConn := fmt.Sprintf("%v:%v@tcp(%v:%v)/%v?charset=utf8mb4&parseTime=True&loc=Local", userName, password, host, port, databaseName)
 	newDb, err := gorm.Open(mysql.Open(dbConn), &gorm.Config{})
 	if err != nil {

@@ -6,6 +6,9 @@ import (
 	"mb-server/common/db"
 	"mb-server/common/logger"
 	"mb-server/router"
+	"os"
+	"os/signal"
+	"syscall"
 )
 
 func bootStart() {
@@ -26,5 +29,10 @@ func bootStart() {
 func main() {
 	bootStart()
 	network := router.StartRouter()
-	network.Run(":8088")
+
+	closeCh := make(chan os.Signal, 1)
+	signal.Notify(closeCh, syscall.SIGINT, syscall.SIGTERM)
+	go network.Run(":8088")
+	<-closeCh
+	logger.Debugf("server shutdown.....")
 }

@@ -5,6 +5,6 @@ type AdminUser struct {
 	Password       string `gorm:"column:password"`
 	LoginToken     string `gorm:"column:login_token"`
 	LastLoginToken string `gorm:"columnlast_login_token"`
-	ExpirationTime string `gorm:"expiration_time"`
-	LoginTime      string `gorm:"login_time"`
+	ExpirationTime int64  `gorm:"expiration_time"`
+	LoginTime      int64  `gorm:"login_time"`
 }

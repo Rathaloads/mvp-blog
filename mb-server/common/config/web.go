@@ -3,7 +3,7 @@ package config
 import "log"
 
 type Web struct {
-	Port string `mapstructure:"Port"`
+	SecretKey string `mapstructure:"SecretKey"`
 }
 
 var (

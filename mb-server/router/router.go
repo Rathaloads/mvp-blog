@@ -13,8 +13,8 @@ func StartRouter() *gin.Engine {
 		// 权限
 		auth := api.Group("/auth")
 		{
-			auth.GET("/login", admin.AdminLogin)
-			auth.POST("/register", func(ctx *gin.Context) {})
+			auth.POST("/login", admin.AdminLogin)
+			auth.POST("/register", admin.AdminRegister)
 		}
 
 		// 日志

@@ -2,7 +2,12 @@ package response
 
 import "github.com/gin-gonic/gin"
 
+func setHeader(c *gin.Context) {
+	c.Header("Content-Type", "application/json")
+}
+
 func ReturnJson(c *gin.Context, code int, message string, data any) {
+	setHeader(c)
 	c.JSON(200, gin.H{
 		"code":    code,
 		"message": message,
