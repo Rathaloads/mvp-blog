@@ -1,6 +1,7 @@
 package token
 
 import (
+	"fmt"
 	"mb-server/common/config"
 	"time"
 
@@ -28,5 +29,24 @@ func CreateJwt(email string) (string, *CustomClaims, error) {
 		return "", nil, err
 	}
 	return tokenStr, claim, nil
+
+}
+
+func ValidateToken(tokenStr string) (*CustomClaims, error) {
+	var claim CustomClaims
+	token, err := jwt.ParseWithClaims(tokenStr, &claim, func(t *jwt.Token) (any, error) {
+		if _, ok := t.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("unexpected signing method: %v", t.Header["alg"])
+		}
+		secretKey := config.GetWebConfig().SecretKey
+		return []byte(secretKey), nil
+	})
+	if err != nil {
+		return nil, err
+	}
+	if token.Valid {
+		return &claim, nil
+	}
+	return nil, fmt.Errorf("token unvaild")
 
 }

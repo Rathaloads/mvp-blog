@@ -36,7 +36,7 @@ func AdminUserLogin(email string, password string) (string, error) {
 	expTime := cliam.ExpiresAt.Time
 	delayTime := expTime.Sub(time.Now())
 
-	db.RedisSetEx("token", email, tokenStr, delayTime)
+	db.RedisSetEx("token", tokenStr, email, delayTime)
 	return tokenStr, nil
 }
 func AdminUserRegister(email string, password string) error {
