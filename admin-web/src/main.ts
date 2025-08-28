@@ -1,5 +1,13 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue';
 import "./styles/index.scss";
+import "./styles/theme.scss";
+import ElementPlus from 'element-plus'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+function bootstart() {
+    const app = createApp(App);
+    app.use(ElementPlus)
+    app.mount('#app')
+}
+
+bootstart();
