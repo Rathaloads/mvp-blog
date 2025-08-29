@@ -1,6 +1,6 @@
+@use  "./normalize.scss";
+@use  "./global.scss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import "./normalize.scss";
-@import "./global.scss";
