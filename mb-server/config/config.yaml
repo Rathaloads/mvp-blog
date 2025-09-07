@@ -1,5 +1,6 @@
 Web:
   SecretKey: "fuckyou!"
+  Mod: "debug"
 Mysql:
   Username: "root"
   Password: "336699"

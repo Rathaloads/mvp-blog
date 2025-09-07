@@ -24,3 +24,30 @@ $--colors: (
 );
 
 @use "element-plus/theme-chalk/src/index.scss" as *;
+
+:root {
+    --el-menu-bg-color: #076237;
+    --el-menu-text-color: #fff;
+    --el-menu-active-color: #8ff99d;
+    --el-menu-border-color: #076237;
+
+    --primary1: #466e4c;
+    --primary2: #076237;
+    --primary3: #134c1b;
+    --primary4: #076237;
+    --primary5: #6c6c6c;
+    --primary6: #272932;
+    --primary7: #8ff99d;
+    --primary8: #7bdd92;
+    --primary9: #ffdd00;
+    --primary10: #134b1a;
+    --primary11: #f78725;
+    --primary12: #8ff99d;
+    --primary13: #ffffff;
+    --primary14: #6bdf398a;
+    --primary20: #ff5a00;
+    --primary21: #24ee89;
+    --primary22: #1a783596;
+    --primary23: #1a7835;
+    --primary24: #162c21;
+}

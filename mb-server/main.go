@@ -9,6 +9,8 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/gin-gonic/gin"
 )
 
 func bootStart() {
@@ -28,11 +30,14 @@ func bootStart() {
 
 func main() {
 	bootStart()
-	network := router.StartRouter()
+	gin.SetMode(config.GetWebConfig().Mod)
+	g := gin.New()
+	g.Use(gin.Logger(), gin.Recovery())
+	router.StartRouter(g)
 
 	closeCh := make(chan os.Signal, 1)
 	signal.Notify(closeCh, syscall.SIGINT, syscall.SIGTERM)
-	go network.Run(":8088")
+	go g.Run(":8088")
 	<-closeCh
 	logger.Debugf("server shutdown.....")
 }

@@ -7,8 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func StartRouter() *gin.Engine {
-	router := gin.Default()
+func StartRouter(router *gin.Engine) {
 	api := router.Group("/api")
 	{
 		// 权限
@@ -52,5 +51,4 @@ func StartRouter() *gin.Engine {
 		}
 
 	}
-	return router
 }

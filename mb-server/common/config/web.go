@@ -4,6 +4,7 @@ import "log"
 
 type Web struct {
 	SecretKey string `mapstructure:"SecretKey"`
+	Mod       string `mapstructure:"Mod"` // "debug", "release"
 }
 
 var (
