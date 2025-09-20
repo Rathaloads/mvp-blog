@@ -8,4 +8,12 @@ export default defineConfig({
     vue(),
     tailwindcss(),
   ],
+
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "~/styles/element/index.scss" as *;`,
+      }
+    }
+  }
 })

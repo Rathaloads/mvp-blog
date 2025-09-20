@@ -26,10 +26,14 @@ $--colors: (
 @use "element-plus/theme-chalk/src/index.scss" as *;
 
 :root {
-    --el-menu-bg-color: #076237;
-    --el-menu-text-color: #fff;
-    --el-menu-active-color: #8ff99d;
-    --el-menu-border-color: #076237;
+    // --el-menu-bg-color: #fff;
+    // --el-menu-text-color: #272932;
+    // --el-menu-active-color: #8ff99d;
+    // --el-menu-border-color: #076237;
+    // --el-menu-horizontal-height: 100%;
+
+    --content-main-color: #EAF5FE;
+    --content-color: #fff;
 
     --primary1: #466e4c;
     --primary2: #076237;
